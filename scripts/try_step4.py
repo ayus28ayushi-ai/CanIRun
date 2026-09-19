@@ -4,12 +4,13 @@ from repoready.github_fetcher import fetch_repository, cleanup
 from repoready.tools.inspect_repository import inspect_repository
 from repoready.tools.read_file import read_file
  
-URL = "https://github.com/ayus28ayushi-ai/CanIRun-demo-broken"   # <- edit this
-info = fetch_repository(URL)
+# URL = "https://github.com/ayus28ayushi-ai/CanIRun-demo-broken"   # <- edit this
+# info = fetch_repository(URL)
     
 
-
-ctx = fetch_repository(URL)
+import sys
+ctx = fetch_repository(sys.argv[1])
+# ctx = fetch_repository(URL)
 try:
     print("== inspect_repository ==")
     print(json.dumps(inspect_repository(ctx), indent=2))

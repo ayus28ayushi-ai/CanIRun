@@ -209,8 +209,6 @@ def inspect_repository(ctx: RepoContext) -> dict[str, Any]:
         ``source_file_counts``
             Dict mapping source extension → integer count across the full tree.
     """
-    ctx.tool_calls += 1
-
     tree, truncated = _build_tree(ctx.root, _TREE_DEPTH, _TREE_MAX_ENTRIES)
     key_files = _find_key_files(ctx.root)
     project_types = _detect_project_types(key_files)
